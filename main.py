@@ -8,17 +8,15 @@ wb = load_workbook('db.xlsx')
 ws = wb.active
 
 balance = ws['B2'].value
-savings = ws['B3'].value 
 
 def update(item, price):
+    item = input("Item> ")
+    price = int(input("Price> "))
     ws.append(date, item, price)
     ws['B2'].value = balance - price
 
-def savings(price):
-    ws['B3'].value = savings + price 
-    
-
-print(balance, savings)
+def currBalance():
+    return balance
 
 wb.save('db.xlsx')
 
